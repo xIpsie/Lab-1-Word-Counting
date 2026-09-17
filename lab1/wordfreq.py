@@ -11,4 +11,13 @@ def tokenize(lines):
 # Input 2: En lista med ointressanta ord som ska ignoreras
 # Output: En dictionary där orden är nycklar och värdena är frekvensen av ordet
 def countWords(words, stopwords):
-    pass
+    temp_dic = {}
+
+    for word in words:
+        if not word in stopwords:
+            if not word in temp_dic:
+                temp_dic.update({str(word): 1})
+            else:
+                temp_dic[str(word)] += 1
+
+    return temp_dic
