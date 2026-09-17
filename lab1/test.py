@@ -25,7 +25,7 @@ def run(src_path=None):
 	global pass_tests, fail_tests
 
 	if src_path == None:
-		import wordfreq
+		import wordfreq 
 	else:
 		spec = importlib.util.spec_from_file_location("wordfreq", src_path+"/wordfreq.py")
 		wordfreq = importlib.util.module_from_spec(spec)
