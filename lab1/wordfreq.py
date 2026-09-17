@@ -15,9 +15,9 @@ def countWords(words, stopwords):
 
     for word in words:
         if not word in stopwords:
-            if not word in temp_dic:
+            if not word in temp_dic: # Checka om vi har sett ordet innan, om inte lägg till i dictionary
                 temp_dic.update({str(word): 1})
-            else:
-                temp_dic[str(word)] += 1
+            else: # Annars om vi har sett ordet, inkrementera countern
+                temp_dic[str(word)] += 1 
 
     return temp_dic
