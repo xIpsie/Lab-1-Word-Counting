@@ -1,2 +1,4 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
 venv/
+lab1/__pycache__/*
+lab1/__pycache__/wordfreq.cpython-313.pyc
