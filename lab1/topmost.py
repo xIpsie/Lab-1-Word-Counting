@@ -4,34 +4,6 @@ sys.setrecursionlimit(10000)
 import urllib.request
 from wordfreq import *
 
-# Input 1: Dictionary som sorteras baserat värdet. Störst till minst.
-# Return: Sorterad dictionary. 
-def sort(dict):
-  if len(dict) <= 1:
-    return dict
-  else:
-    partNum, partItem, part1, part2 = dict[next(iter(dict))], next(iter(dict)), {}, {}
-    dict.pop(next(iter(dict)))
-
-    for e in dict:
-      if dict[e] > partNum:
-        part1[e] = dict[e]
-      else:
-        part2[e] = dict[e]
-
-    part1[partItem] = partNum
-    return sort(part1) | (sort(part2))
-
-
-# Input 1: En dictionary med ord och dess frekvenser
-# Input 2: Hur många av de vanligaste orden som ska printas
-def printTopMost(frequencies, n):
-    frequencies = sort(frequencies)
-    word_list = list(frequencies) 
-
-    for i in range(n):
-      print(word_list[i].ljust(10), frequencies[word_list[i]])
-
 
 # Input: Inputten anges i command prompten t.ex. "py topmost.py eng_stopwords.txt examples/article1.txt 20"
 # Där topmost.py --> sys.argv[0], eng_stopwords.txt --> sys.argv[1], examples/article1.txt --> sys.argv[2], 20 --> sys.argv[3]
