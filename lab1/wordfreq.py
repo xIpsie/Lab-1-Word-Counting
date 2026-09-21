@@ -95,6 +95,7 @@ def printTopMost(frequencies, n):
 
   for i in range(n):
     try:
-        print(word_list[i].ljust(10), frequencies[word_list[i]])
-    except:     # word_list is empety or has i is out of range for word_list. 
+        print(word_list[i].ljust(20), str(frequencies[word_list[i]]).rjust(4))
+    except Exception as e:     # word_list is empety or i is out of range for word_list. 
+       print(e)
        return
