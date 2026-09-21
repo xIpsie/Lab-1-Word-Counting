@@ -65,8 +65,12 @@ def countWords(words, stopwords):
     return temp_dic
 
 
-# Input 1: Dictionary som sorteras baserat värdet. Störst till minst.
-# Return: Sorterad dictionary. 
+# A quicksort function that sorts a dictionary by the value, from largest to smallest. Requires the value to be numerical. 
+#
+# Parameter: 
+# dict: The dictionary the function sorts. 
+#
+# Return: The sorted dictionary. 
 def sort(dict):
   if len(dict) <= 1:
     return dict
@@ -84,8 +88,13 @@ def sort(dict):
     return sort(part1) | (sort(part2))
 
 
-# Input 1: En dictionary med ord och dess frekvenser
-# Input 2: Hur många av de vanligaste orden som ska printas
+# Sorts the words in frequencies using help function sort() then prints the n first words in frequencies along with thier frequency. 
+#
+# Parameter: 
+# frequencies: A dictionary with words and their frequencies. 
+# n: Number of words the function should print. 
+#
+# Return: void
 def printTopMost(frequencies, n):
   frequencies = sort(frequencies)
   word_list = list(frequencies)
@@ -96,6 +105,5 @@ def printTopMost(frequencies, n):
   for i in range(n):
     try:
         print(word_list[i].ljust(20), str(frequencies[word_list[i]]).rjust(4))
-    except Exception as e:     # word_list is empety or i is out of range for word_list. 
+    except Exception as e:
        print(e)
-       return

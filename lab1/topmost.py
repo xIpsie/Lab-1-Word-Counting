@@ -1,5 +1,5 @@
 import sys
-# Hårdkodad limit på hur många loops en rekursiv func kan köras för annars cappar på den 999 försök
+# Hårdkodad limit på hur många loops en rekursiv func kan köras för annars cappar på den 999 försök. Quicksort, som används i sort(), kommer köra rekursivt 1 gång per unikt ord i en text. Dvs. 1000 unika ord i en text = 1000 rekursiva lager i sort(). 
 sys.setrecursionlimit(10000)
 import urllib.request
 from wordfreq import *
