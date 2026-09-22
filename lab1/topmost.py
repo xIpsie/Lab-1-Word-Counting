@@ -1,6 +1,4 @@
 import sys
-# Hårdkodad limit på hur många loops en rekursiv func kan köras för annars cappar på den 999 försök. Quicksort, som används i sort(), kommer köra rekursivt 1 gång per unikt ord i en text. Dvs. 1000 unika ord i en text = 1000 rekursiva lager i sort(). 
-sys.setrecursionlimit(10000)
 import urllib.request
 from wordfreq import *
 
@@ -24,6 +22,7 @@ def main():
   with open(stopwords_file, encoding="utf-8") as document:
     frequencies = countWords(text, document.read())
 
+  sys.setrecursionlimit(len(frequencies))   # change recusion limit to the number of unique words in text ahead of sort()
   printTopMost(frequencies, n)
 
 
