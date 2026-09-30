@@ -22,7 +22,6 @@ def main():
   with open(stopwords_file, encoding="utf-8") as document:
     frequencies = countWords(text, document.read())
 
-  sys.setrecursionlimit(len(frequencies))   # change recusion limit to the number of unique words in text ahead of sort()
   printTopMost(frequencies, n)
 
 
