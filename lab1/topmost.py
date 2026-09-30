@@ -11,7 +11,7 @@ from wordfreq import *
 # Output: printTopMost() printar ut de n mest frekventa ord och deras statistik
 def main():
   # Checkar om input-texten är en hemsida eller en .txt
-  if sys.argv[2][:7] == "http://" or sys.argv[2][:8] == "https://":
+  if str(sys.argv[2]).startswith(("http://", "https://")):
     response = urllib.request.urlopen(sys.argv[2])  
     raw_text = response.read().decode("utf8")
   else:
