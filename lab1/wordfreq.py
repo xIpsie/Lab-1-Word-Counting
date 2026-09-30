@@ -65,30 +65,7 @@ def countWords(words, stopwords):
     return temp_dic
 
 
-# A quicksort function that sorts a dictionary by the value, from largest to smallest. Requires the value to be numerical. 
-#
-# Parameter: 
-# dict: The dictionary the function sorts. 
-#
-# Return: The sorted dictionary. 
-def sort(dict):
-  if len(dict) <= 1:
-    return dict
-  else:
-    partNum, partItem, part1, part2 = dict[next(iter(dict))], next(iter(dict)), {}, {}
-    dict.pop(next(iter(dict)))
-
-    for e in dict:
-      if dict[e] > partNum:
-        part1[e] = dict[e]
-      else:
-        part2[e] = dict[e]
-
-    part1[partItem] = partNum
-    return sort(part1) | (sort(part2))
-
-
-# Sorts the words in frequencies using help function sort() then prints the n first words in frequencies along with thier frequency. 
+# Sorts the words in frequencies using sorted() function, then prints the n first words in frequencies along with thier frequency. 
 #
 # Parameter: 
 # frequencies: A dictionary with words and their frequencies. 
@@ -96,14 +73,5 @@ def sort(dict):
 #
 # Return: void
 def printTopMost(frequencies, n):
-  frequencies = sort(frequencies)
-  word_list = list(frequencies)
-
-  if len(frequencies) == 0:
-     return
-
-  for i in range(n):
-    try:
-        print(word_list[i].ljust(20), str(frequencies[word_list[i]]).rjust(4))
-    except Exception as e:
-       print(e)
+  for i in sorted(frequencies.items(), key=lambda x: -x[1])[:n]:
+     print(i[0].ljust(20), str(i[1]).rjust(4))
