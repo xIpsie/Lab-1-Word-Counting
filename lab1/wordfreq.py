@@ -23,7 +23,12 @@ def tokenize(lines):
             while start < len(word):
                 tokenType = checkCharType(word[start])
                 token = ""
-                while (end < len(word)) and checkCharType(word[end]) == tokenType:
+
+                if tokenType == CharType.SYMBOL:
+                    token = word[start]
+                    end += 1
+
+                while (end < len(word)) and checkCharType(word[end]) == tokenType and tokenType != CharType.SYMBOL:
                     token += word[end].lower()
                     end += 1
 
